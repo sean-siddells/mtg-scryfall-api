@@ -1,0 +1,3 @@
+- move to TS
+- Get routes and sorted make home page and links/blog
+- REENABLE STRICT MODE before deploying prod build
