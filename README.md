@@ -1,5 +1,5 @@
-# trail-dvd-visualiser
-Toy Project for creating a basic visualiser in p5.js
+# ts-react-boilerplate
+boilerplate for TypeScript and React projects
 
 --------
 
