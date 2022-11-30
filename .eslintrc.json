@@ -16,12 +16,10 @@
         "sourceType": "module"
     },
     "plugins": [
-      "react",
       "react-hooks"
     ],
     "rules": {
       "no-use-before-define": "off",
-      "@typescript-eslint/no-use-before-define": ["error"],
       "import/extensions": [
         "error",
         "ignorePackages",
@@ -31,7 +29,26 @@
         }
       ],
       "no-shadow": "off",
-      "@typescript-eslint/no-shadow": ["error"]
+      "@typescript-eslint/no-shadow": ["error"],
+      "@typescript-eslint/no-var-requires": ["warn"],
+      "indent": "off",
+      "@typescript-eslint/indent": [
+        "error",
+        2
+      ],
+      "react/jsx-filename-extension": [
+        2, {
+          "extensions":
+          [".js", ".jsx", ".ts", ".tsx"]
+        }
+      ],
+      "react/function-component-definition": [
+        "error",
+        {
+          "namedComponents": ["function-declaration", "arrow-function"],
+          "unnamedComponents": "arrow-function"
+        }
+      ]
     },
     "settings": {
       "import/resolver": {
