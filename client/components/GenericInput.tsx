@@ -1,15 +1,17 @@
 import React from 'react';
 import { Container, InputField, InputFieldContainer } from '../constants';
+import { EventType } from '../types';
 
-type InputProps = {
-  title: string
-};
+interface InputProps {
+  title: string;
+  handleChange: (e: EventType) => void;
+}
 
-const GenericInput: React.FC<InputProps> = ({ title }) => (
+const GenericInput: React.FC<InputProps> = ({ title, handleChange }) => (
   <Container>
     <h3>{title}</h3>
     <InputFieldContainer>
-      <InputField />
+      <InputField type="text" onChange={handleChange} />
     </InputFieldContainer>
   </Container>
 );

@@ -34,9 +34,10 @@
   "dependencies": {
     "express": "^4.17.3",
     "react": "^18.2.0",
-    "styled-components": "^5.3.6",
+    "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.2",
-    "react-dom": "^18.2.0"
+    "styled-components": "^5.3.6",
+    "superagent": "^8.0.6"
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",

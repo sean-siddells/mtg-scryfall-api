@@ -7,31 +7,33 @@ import blue from '../../src/assets/blue.png';
 import red from '../../src/assets/red.png';
 import green from '../../src/assets/green.png';
 import { Container } from '../constants';
+import { EventType } from '../types';
 
-type ColorProps = {
-  title: string
+type ColourProps = {
+  title: string;
+  handleChange: (e: EventType) => void;
 }
-const Color: React.FC<ColorProps> = ({ title }) => (
+const Colour: React.FC<ColourProps> = ({ title, handleChange }) => (
   <Container>
     <h3>{title}</h3>
     <CheckBoxContainer>
-      <input type="checkbox" />
+      <input value="black" type="checkbox" onChange={handleChange} />
       <ColourIcon src={black} alt="swamp" />
-      <input type="checkbox" />
+      <input value="white" type="checkbox" onChange={handleChange} />
       <ColourIcon src={white} alt="plains" />
-      <input type="checkbox" />
+      <input value="blue" type="checkbox" onChange={handleChange} />
       <ColourIcon src={blue} alt="island" />
-      <input type="checkbox" />
+      <input value="green" type="checkbox" onChange={handleChange} />
       <ColourIcon src={green} alt="forest" />
-      <input type="checkbox" />
+      <input value="red" type="checkbox" onChange={handleChange} />
       <ColourIcon src={red} alt="mountain" />
-      <input type="checkbox" />
+      <input value="colorless" type="checkbox" onChange={handleChange} />
       <ColourIcon src={colorless} alt="colorless" />
     </CheckBoxContainer>
   </Container>
 );
 
-const CheckBoxContainer = styled.form`
+const CheckBoxContainer = styled.div`
   padding: 2vh 10vw;
   display: flex;
   flex-direction: row;
@@ -44,4 +46,4 @@ const ColourIcon = styled.img`
   padding-right: 32px;
 `;
 
-export default Color;
+export default Colour;
