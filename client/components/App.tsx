@@ -1,9 +1,9 @@
 import React from 'react';
-import Home from './Home';
+import { Outlet } from 'react-router-dom';
 
 const App: React.FC = () => (
   <div className="app">
-    <Home />
+    <Outlet />
   </div>
 );
 

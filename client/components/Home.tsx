@@ -30,6 +30,7 @@ const Home: React.FC = () => {
   //   await getCards(formData)
   //     .then(navigate('/results'));
   // };
+
   return (
     <>
       <TitleContainer> Find cards for your new deck!</TitleContainer>
@@ -46,7 +47,7 @@ const Home: React.FC = () => {
           title="Colour Identity:"
           handleChange={(e: EventType) => handleChange(e, 'colour')}
         />
-        <SubmitButton type="button" value="Submit" onClick={() => getCards(formData)} />
+        <SubmitButton type="button" value="Submit" onClick={() => navigate('/results')} />
       </form>
     </>
   );
@@ -56,6 +57,9 @@ const SubmitButton = styled.input`
   border-radius: 5px;
   margin: 0 auto;
   display: flex;
+  &:hover {
+    cursor: pointer;
+  };
 `;
 
 const TitleContainer = styled.h1`
