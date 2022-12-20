@@ -1,3 +1,3 @@
-- move to TS
-- Get routes and sorted make home page and links/blog
+- add dropdown for equality check on colour identity
+- setup routes
 - REENABLE STRICT MODE before deploying prod build

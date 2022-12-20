@@ -35,7 +35,7 @@
     "express": "^4.17.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.4.2",
+    "react-router-dom": "^6.5.0",
     "styled-components": "^5.3.6",
     "superagent": "^8.0.6"
   },
@@ -49,6 +49,7 @@
     "@types/react": "^18.0.23",
     "@types/react-dom": "^18.0.7",
     "@types/styled-components": "^5.1.26",
+    "@types/superagent": "^4.1.16",
     "@typescript-eslint/eslint-plugin": "^5.41.0",
     "babel-loader": "^8.2.5",
     "core-js": "^3.26.0",

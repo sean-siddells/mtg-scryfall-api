@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import toggleColour from '../helpers';
+import getCards from '../api/api';
+import { toggleColour } from '../helpers';
 import {
   EventType, InputType, FormData, Colours,
 } from '../types';
@@ -8,6 +10,7 @@ import Color from './Colour';
 import GenericInput from './GenericInput';
 
 const Home: React.FC = () => {
+  const navigate = useNavigate();
   const initialForm: FormData = {
     name: '',
     text: '',
@@ -23,6 +26,10 @@ const Home: React.FC = () => {
     console.log(formData);
   };
 
+  // const handleSubmit = async (formData: FormData) => {
+  //   await getCards(formData)
+  //     .then(navigate('/results'));
+  // };
   return (
     <>
       <TitleContainer> Find cards for your new deck!</TitleContainer>
@@ -39,7 +46,7 @@ const Home: React.FC = () => {
           title="Colour Identity:"
           handleChange={(e: EventType) => handleChange(e, 'colour')}
         />
-        <SubmitButton type="submit" value="Submit" />
+        <SubmitButton type="button" value="Submit" onClick={() => getCards(formData)} />
       </form>
     </>
   );
