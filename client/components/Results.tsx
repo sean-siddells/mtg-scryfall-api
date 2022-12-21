@@ -7,7 +7,8 @@ const Results: React.FC = () => {
   console.log(state.data);
   return (
     <Container>
-      <div>{JSON.stringify(state.data)}</div>
+      <div>{state.data.name}</div>
+      <img src={state.data.image_uris.small} alt="Card Artwork" />
     </Container>
   );
 };

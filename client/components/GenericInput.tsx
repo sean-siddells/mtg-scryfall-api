@@ -1,10 +1,9 @@
 import React from 'react';
 import { Container, InputField, InputFieldContainer } from '../constants';
-import { EventType } from '../types';
 
 interface InputProps {
   title: string;
-  handleChange: (e: EventType) => void;
+  handleChange: React.ChangeEventHandler;
 }
 
 const GenericInput: React.FC<InputProps> = ({ title, handleChange }) => (

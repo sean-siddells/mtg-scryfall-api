@@ -6,11 +6,11 @@ export const toggleColour = (array: Colours[], colour: Colours) => {
   return array;
 };
 
-const insertPlusIntoString = (sentence: string): string => sentence.split(' ').join('+').toLowerCase();
-
 export const paramGenerator = (searchParams: FormData): string => {
   let paramString = '';
 
-  if (searchParams.name !== '') paramString = `named?fuzzy=${insertPlusIntoString(searchParams.name)}`;
+  console.log(encodeURIComponent(searchParams.name));
+  if (searchParams.name !== '') paramString = `named?fuzzy=${encodeURIComponent(searchParams.name.toLowerCase())}`;
+  // if (searchParams.text !== '') paramString = `search?`
   return paramString;
 };
