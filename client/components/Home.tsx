@@ -10,7 +10,6 @@ import Color from './Colour';
 import GenericInput from './GenericInput';
 
 const Home: React.FC = () => {
-  const navigate = useNavigate();
   const initialForm: FormData = {
     name: '',
     text: '',
@@ -18,6 +17,7 @@ const Home: React.FC = () => {
   };
 
   const [formData, setFormData] = useState(initialForm);
+  const navigate = useNavigate();
 
   const handleChange = (e: EventType, param: InputType) => {
     if (param === 'colour') formData.colour = toggleColour(formData.colour, e.target.value as Colours);
@@ -26,10 +26,12 @@ const Home: React.FC = () => {
     console.log(formData);
   };
 
-  // const handleSubmit = async (formData: FormData) => {
-  //   await getCards(formData)
-  //     .then(navigate('/results'));
-  // };
+  const handleSubmit = async () => {
+    const data = await getCards(formData);
+    navigate('/results', {
+      state: { data },
+    });
+  };
 
   return (
     <>
@@ -47,7 +49,11 @@ const Home: React.FC = () => {
           title="Colour Identity:"
           handleChange={(e: EventType) => handleChange(e, 'colour')}
         />
-        <SubmitButton type="button" value="Submit" onClick={() => navigate('/results')} />
+        <SubmitButton
+          type="button"
+          value="Submit"
+          onClick={handleSubmit}
+        />
       </form>
     </>
   );

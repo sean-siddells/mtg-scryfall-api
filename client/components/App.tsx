@@ -6,5 +6,4 @@ const App: React.FC = () => (
     <Outlet />
   </div>
 );
-
 export default App;
