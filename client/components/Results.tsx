@@ -4,12 +4,21 @@ import { Container } from '../constants';
 
 const Results: React.FC = () => {
   const { state } = useLocation();
-  console.log(state.data);
+
+  console.log('results', state);
+
   return (
     <Container>
-      <div>{state.data.name}</div>
-      <img src={state.data.image_uris.small} alt="Card Artwork" />
+      {state != null
+        ? state.data.map((item: any) => (
+          <>
+            <div>{item.name}</div>
+            <img src={item.image_uris.normal} alt="Card Artwork" />
+          </>
+        ))
+        : <div>woops, no results matched your search parameters</div>}
     </Container>
   );
 };
+
 export default Results;

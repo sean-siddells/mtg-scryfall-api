@@ -9,8 +9,8 @@ export const toggleColour = (array: Colours[], colour: Colours) => {
 export const paramGenerator = (searchParams: FormData): string => {
   let paramString = '';
 
-  console.log(encodeURIComponent(searchParams.name));
-  if (searchParams.name !== '') paramString = `named?fuzzy=${encodeURIComponent(searchParams.name.toLowerCase())}`;
+  console.log('encoded string', encodeURIComponent(searchParams.name));
+  if (searchParams.name !== '') paramString = `search?q=${encodeURIComponent(searchParams.name.toLowerCase())}`;
   // if (searchParams.text !== '') paramString = `search?`
   return paramString;
 };

@@ -30,13 +30,14 @@ const Home: React.FC = () => {
     if (param !== 'colour') formData[param] = e.target.value;
 
     setFormData(formData);
-    console.log(formData);
+    console.log('state', formData);
   };
 
   const handleSubmit = async () => {
     const data = await getCards(formData);
+    console.log('data', data);
     navigate('/results', {
-      state: { data },
+      state: data,
     });
   };
 
