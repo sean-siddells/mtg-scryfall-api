@@ -9,7 +9,6 @@ export const toggleColour = (selectedColours: Colours[], colour: Colours) => {
 export const paramGenerator = (searchParams: FormData): string => {
   let paramString = '';
 
-  console.log('encoded string', encodeURIComponent(searchParams.name));
   if (searchParams.name !== '') paramString = `search?q=${encodeURIComponent(searchParams.name.toLowerCase())}`;
   // if (searchParams.text !== '') paramString = `search?`
   return paramString;
@@ -19,4 +18,9 @@ export const paramGenerator = (searchParams: FormData): string => {
 export const checkForAlchemy = (name: string): boolean => {
   const characterArr = name.split('');
   return (characterArr[0] === 'A' && characterArr[1] === '-');
+};
+
+export const checkDoubleSided = (name: string) : boolean => {
+  const wordArr = name.split(' ');
+  return wordArr.includes('//');
 };

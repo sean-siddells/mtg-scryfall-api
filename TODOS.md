@@ -1,4 +1,3 @@
-- set up card component (each individual card from the list of cards returned)
 - set up a no results component;
 - card text search functionality
 - colour identity search

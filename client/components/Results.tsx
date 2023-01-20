@@ -2,24 +2,20 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { Container } from '../constants';
 import { checkForAlchemy } from '../helpers';
+import { CardDTO } from '../types';
+import Card from './Card';
 
 const Results: React.FC = () => {
   const { state } = useLocation();
 
-  console.log('results', state);
-
   return (
     <Container>
       {state != null
-        ? state.data.map((item: any) => (
+        ? state.data.map((item: CardDTO) => (
           checkForAlchemy(item.name)
             ? null
             : (
-              <>
-                <div>{item.name}</div>
-                <img src={item.image_uris.small} alt="Card Artwork" />
-              </>
-
+              <Card data={item} />
             )
         ))
         : <div>woops, no results matched your search parameters</div>}
