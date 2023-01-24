@@ -1,5 +1,6 @@
 import { Colours, FormData } from './types';
 
+// removes selected colour from state if it is already checked
 export const toggleColour = (selectedColours: Colours[], colour: Colours) => {
   if (selectedColours.includes(colour)) return selectedColours.filter((item) => item !== colour);
   selectedColours.push(colour);
@@ -20,7 +21,4 @@ export const checkForAlchemy = (name: string): boolean => {
   return (characterArr[0] === 'A' && characterArr[1] === '-');
 };
 
-export const checkDoubleSided = (name: string) : boolean => {
-  const wordArr = name.split(' ');
-  return wordArr.includes('//');
-};
+export const capitalise = (word: string): string => word.split('')[0].toUpperCase() + word.slice(1, word.length);

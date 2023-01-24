@@ -1,22 +1,28 @@
 import React from 'react';
 import styled from 'styled-components';
-import { CardDTO } from '../types';
+import { CardDTO, Formats } from '../types';
+import CardDetail from './CardDetail';
 
 interface CardProps {
   data: CardDTO
 }
 
-const Card: React.FC<CardProps> = ({ data }) => (
-  <CardContainer>
-    <CardImage src={data.image_uris.small} alt="Card Artwork" />
-    <TextContainer>
-      <CardName>{data.name}</CardName>
-      <CardDetails>{data.rarity}</CardDetails>
-      <CardDetails>{data.oracle_text}</CardDetails>
-      <CardDetails>{data.set_name}</CardDetails>
-    </TextContainer>
-  </CardContainer>
-);
+const Card: React.FC<CardProps> = ({ data }) => {
+  const legalFormats = (Object.keys(data.legalities) as (keyof Formats)[]).filter((key) => data.legalities[key] === 'legal');
+  return (
+    <CardContainer>
+      <CardImage src={data.image_uris.normal} alt="Card Artwork" />
+      <TextContainer>
+        <CardName>{data.name}</CardName>
+        <CardDetail subtitle="artist" value={[data.artist]} />
+        <CardDetail subtitle="rarity" value={[data.rarity]} />
+        <CardDetail subtitle="text" value={[data.oracle_text]} />
+        <CardDetail subtitle="set" value={[data.set_name]} />
+        <CardDetail subtitle="formats" value={legalFormats} />
+      </TextContainer>
+    </CardContainer>
+  );
+};
 
 const CardContainer = styled.div`
   display: flex;
@@ -33,16 +39,12 @@ const TextContainer = styled.div`
 const CardName = styled.div`
   font-weight: bold;
   font-size: 1rem;
-  padding-bottom: 16px;
-`;
-
-const CardDetails = styled.div`
-  padding-bottom: 16px;
+  padding-bottom: 8px;
 `;
 
 const CardImage = styled.img`
-  width: 146px;
-  height: 204px;
+  width: 244px;
+  height: 340px;
   margin: 0px 16px 16px 16px;
 `;
 

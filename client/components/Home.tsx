@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import getCards from '../api/api';
-import { toggleColour } from '../helpers';
+import { capitalise, toggleColour } from '../helpers';
 import {
   InputType, FormData, Colours, Condition,
 } from '../types';
@@ -35,6 +35,7 @@ const Home: React.FC = () => {
 
   const handleSubmit = async () => {
     const data = await getCards(formData);
+    console.log(capitalise('hello'));
     console.log('data', data);
     navigate('/results', {
       state: data,

@@ -15,6 +15,8 @@ export interface CardDTO {
   legalities: Formats
   oracle_text: string
   image_uris: ImageURIs
+  layout: string
+  artist: string
 }
 
 export interface Formats {
@@ -52,4 +54,6 @@ export type InputType = 'name'| 'text'| 'colour'
 export type Condition = 'includes' | 'exactly' | 'excludes'
 export type Colours = 'black' | 'white' | 'blue' | 'green' | 'red' | 'colorless'
 export type Rarity = 'common' | 'uncommon' | 'rare' | 'mythic'
-type Legality = 'legal' | 'not_legal'
+export type Legality = 'legal' | 'not_legal'
+
+export type Detail = 'rarity' | 'Name' | 'formats' | 'text' | 'set' | 'artist'

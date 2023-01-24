@@ -12,7 +12,7 @@ const Results: React.FC = () => {
     <Container>
       {state != null
         ? state.data.map((item: CardDTO) => (
-          checkForAlchemy(item.name)
+          checkForAlchemy(item.name) || item.layout === 'transform'
             ? null
             : (
               <Card data={item} />
