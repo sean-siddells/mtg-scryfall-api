@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { capitalise } from '../helpers';
 import { CardDTO, Formats } from '../types';
 import CardDetail from './CardDetail';
 
@@ -15,7 +16,7 @@ const Card: React.FC<CardProps> = ({ data }) => {
       <TextContainer>
         <CardName>{data.name}</CardName>
         <CardDetail subtitle="artist" value={[data.artist]} />
-        <CardDetail subtitle="rarity" value={[data.rarity]} />
+        <CardDetail subtitle="rarity" value={[capitalise(data.rarity)]} />
         <CardDetail subtitle="text" value={[data.oracle_text]} />
         <CardDetail subtitle="set" value={[data.set_name]} />
         <CardDetail subtitle="formats" value={legalFormats} />

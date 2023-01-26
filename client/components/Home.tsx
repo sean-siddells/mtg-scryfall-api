@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import getCards from '../api/api';
-import { capitalise, toggleColour } from '../helpers';
+import { toggleColour } from '../helpers';
 import {
   InputType, FormData, Colours, Condition,
 } from '../types';
 import Color from './Colour';
 import GenericInput from './GenericInput';
+import Results from './Results';
 
 type EventType = React.ChangeEvent<HTMLInputElement>
 
@@ -21,8 +21,8 @@ const Home: React.FC = () => {
     },
   };
 
+  const [results, setResults] = useState();
   const [formData, setFormData] = useState(initialForm);
-  const navigate = useNavigate();
 
   const handleChange = (e: EventType, param: InputType) => {
     if (e.target.id === 'colour-condition' && param === 'colour') formData.colour.condition = e.target.value as Condition;
@@ -35,11 +35,8 @@ const Home: React.FC = () => {
 
   const handleSubmit = async () => {
     const data = await getCards(formData);
-    console.log(capitalise('hello'));
     console.log('data', data);
-    navigate('/results', {
-      state: data,
-    });
+    setResults(data);
   };
 
   return (
@@ -64,6 +61,7 @@ const Home: React.FC = () => {
           value="Submit"
           onClick={handleSubmit}
         />
+        {results && <Results results={results} />}
       </form>
     </>
   );

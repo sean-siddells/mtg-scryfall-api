@@ -56,4 +56,4 @@ export type Colours = 'black' | 'white' | 'blue' | 'green' | 'red' | 'colorless'
 export type Rarity = 'common' | 'uncommon' | 'rare' | 'mythic'
 export type Legality = 'legal' | 'not_legal'
 
-export type Detail = 'rarity' | 'Name' | 'formats' | 'text' | 'set' | 'artist'
+export type Detail = 'rarity' | 'name' | 'formats' | 'text' | 'set' | 'artist'

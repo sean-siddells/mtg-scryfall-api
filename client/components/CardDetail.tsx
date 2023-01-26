@@ -8,23 +8,44 @@ interface CardDetailsProps {
   value: string[]
 }
 
-const CardDetail: React.FC<CardDetailsProps> = ({ subtitle, value }) => (subtitle === ('formats' || 'text')
+const CardDetail: React.FC<CardDetailsProps> = ({ subtitle, value }) => (subtitle === ('formats')
   ? (
-    <dl>
-      <Bold>{`${capitalise(subtitle)}: `}</Bold>
-      {value.map((el:string) => <dd>{el}</dd>)}
-    </dl>
+    <Container>
+      <dl>
+        <Bold>{`${capitalise(subtitle)}: `}</Bold>
+        {value.map((el:string) => <BulletPoints>{el}</BulletPoints>)}
+      </dl>
+    </Container>
   )
-  : (<SingleLine>{`${capitalise(subtitle)}: ${value[0]}`}</SingleLine>)
+  : (
+    <Container>
+      <>
+        <Bold>
+          {`${capitalise(subtitle)}: `}
+        </Bold>
+        <SingleLine>{value[0]}</SingleLine>
+      </>
+    </Container>
+  )
 );
 
-const SingleLine = styled.div`
+const SingleLine = styled.span`
   flex-direction: row;
   padding-bottom: 8px;
+  padding-left: 16px;
 `;
 
 const Bold = styled.dt`
   font-weight: bold;
+`;
+
+const BulletPoints = styled.dd`
+  padding-left: 16px;
+`;
+
+const Container = styled.div`
+  display: flex;
+  font-size: 0.9em;
 `;
 
 export default CardDetail;

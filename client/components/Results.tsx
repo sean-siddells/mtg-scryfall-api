@@ -1,26 +1,27 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
 import { Container } from '../constants';
 import { checkForAlchemy } from '../helpers';
 import { CardDTO } from '../types';
 import Card from './Card';
 
-const Results: React.FC = () => {
-  const { state } = useLocation();
+interface ResultsProps {
+  results: {
+    data: CardDTO[]
+  }
+}
 
-  return (
-    <Container>
-      {state != null
-        ? state.data.map((item: CardDTO) => (
-          checkForAlchemy(item.name) || item.layout === 'transform'
-            ? null
-            : (
-              <Card data={item} />
-            )
-        ))
-        : <div>woops, no results matched your search parameters</div>}
-    </Container>
-  );
-};
+const Results: React.FC<ResultsProps> = ({ results }) => (
+  <Container>
+    {results != null
+      ? results.data.map((item) => (
+        checkForAlchemy(item.name) || item.layout === 'transform'
+          ? null
+          : (
+            <Card data={item} />
+          )
+      ))
+      : <div>woops, no results matched your search parameters</div>}
+  </Container>
+);
 
 export default Results;
