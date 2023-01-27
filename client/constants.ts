@@ -6,7 +6,9 @@ export const Container = styled.div`
 `;
 
 export const InputFieldContainer = styled.div`
+  display: flex;
   padding-left: 10vw;
+  flex-direction: row;
 `;
 
 export const InputField = styled.input`
