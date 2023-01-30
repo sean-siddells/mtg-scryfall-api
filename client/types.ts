@@ -17,6 +17,7 @@ export interface CardDTO {
   image_uris: ImageURIs
   layout: string
   artist: string
+  oracle_id: string
 }
 
 export interface Formats {

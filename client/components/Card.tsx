@@ -15,11 +15,11 @@ const Card: React.FC<CardProps> = ({ data }) => {
       <CardImage src={data.image_uris.normal} alt="Card Artwork" />
       <TextContainer>
         <CardName>{data.name}</CardName>
-        <CardDetail subtitle="artist" value={[data.artist]} />
-        <CardDetail subtitle="rarity" value={[capitalise(data.rarity)]} />
-        <CardDetail subtitle="text" value={[data.oracle_text]} />
-        <CardDetail subtitle="set" value={[data.set_name]} />
-        <CardDetail subtitle="formats" value={legalFormats} />
+        <CardDetail key={`artist-${data.oracle_id}`} subtitle="artist" value={[data.artist]} />
+        <CardDetail key={`rarity-${data.oracle_id}`} subtitle="rarity" value={[capitalise(data.rarity)]} />
+        <CardDetail key={`text-${data.oracle_id}`} subtitle="text" value={[data.oracle_text]} />
+        <CardDetail key={`set-${data.oracle_id}`} subtitle="set" value={[data.set_name]} />
+        <CardDetail key={`formats-${data.oracle_id}`} subtitle="formats" value={legalFormats} />
       </TextContainer>
     </CardContainer>
   );

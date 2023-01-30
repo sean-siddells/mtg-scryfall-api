@@ -1,3 +1,4 @@
+import { uniqueId } from 'lodash';
 import React from 'react';
 import styled from 'styled-components';
 import { capitalise } from '../helpers';
@@ -13,7 +14,7 @@ const CardDetail: React.FC<CardDetailsProps> = ({ subtitle, value }) => (subtitl
     <Container>
       <dl>
         <Bold>{`${capitalise(subtitle)}: `}</Bold>
-        {value.map((el:string) => <BulletPoints>{el}</BulletPoints>)}
+        {value.map((el:string) => <BulletPoints key={uniqueId('format')}>{el}</BulletPoints>)}
       </dl>
     </Container>
   )

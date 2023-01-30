@@ -17,7 +17,7 @@ const Results: React.FC<ResultsProps> = ({ results }) => (
         checkForAlchemy(item.name) || item.layout === 'transform'
           ? null
           : (
-            <Card data={item} />
+            <Card key={item.oracle_id} data={item} />
           )
       ))
       : <div>woops, no results matched your search parameters</div>}
