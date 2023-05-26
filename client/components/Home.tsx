@@ -2,37 +2,28 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import getCards from '../api/api';
-import { toggleColour } from '../helpers';
 import {
-  InputType, FormData, Colours, Condition,
+  FormData, EventType,
 } from '../types';
-import Color from './Colour';
 import GenericInput from './GenericInput';
 import Results from './Results';
-
-type EventType = React.ChangeEvent<HTMLInputElement>
+import UseHandleFormDataChange from '../hooks';
 
 const Home: React.FC = () => {
   const initialForm: FormData = {
     name: '',
     text: '',
     colour: {
-      condition: 'includes',
-      colours: [],
+      filterParam: 'includes',
+      selectedColours: [],
     },
   };
 
   const [results, setResults] = useState();
   const [formData, setFormData] = useState(initialForm);
 
-  const handleChange = (e: EventType, param: InputType) => {
-    if (e.target.id === 'colour-condition' && param === 'colour') formData.colour.condition = e.target.value as Condition;
-    if (e.target.id !== 'colour-condition' && param === 'colour') formData.colour.colours = toggleColour(formData.colour.colours, e.target.value as Colours);
-    if (param !== 'colour') formData[param] = e.target.value;
-
-    setFormData(formData);
-    console.log('state', formData);
-  };
+  setFormData(formData);
+  console.log('state', formData);
 
   const handleSubmit = async () => {
     const data = await getCards(formData);
@@ -51,17 +42,19 @@ const Home: React.FC = () => {
         <form>
           <GenericInput
             title="Card Name"
-            handleChange={(e: EventType) => handleChange(e, 'name')}
+            handleChange={(e: EventType) => {
+              UseHandleFormDataChange(formData, e, 'name');
+            }}
           />
           <GenericInput
             title="Card Text"
-            handleChange={(e: EventType) => handleChange(e, 'text')}
+            handleChange={(e: EventType) => UseHandleFormDataChange(formData, e, 'text')}
           />
-          <Color
+          {/* <Color
             title="Colour Identity"
-            handleChange={(e: EventType) => handleChange(e, 'colour')}
+            handleChange={(e: EventType) => UseHandleFormDataChange(formData, e, 'colour')}
             condition={formData.colour.condition}
-          />
+          /> */}
           <SubmitButton
             as={motion.button}
             type="button"

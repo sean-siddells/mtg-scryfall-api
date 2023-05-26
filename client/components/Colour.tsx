@@ -7,20 +7,18 @@ import blue from '../../src/assets/blue.png';
 import red from '../../src/assets/red.png';
 import green from '../../src/assets/green.png';
 import { Container } from '../constants';
-import { Condition } from '../types';
-import ConditionDropDown from './ConditionDropDown';
+import FilterParamDropDown from './FilterParamDropDown';
 
 type ColourProps = {
   title: string;
   handleChange: React.ChangeEventHandler;
-  condition: Condition;
 }
 
-const Colour: React.FC<ColourProps> = ({ title, handleChange, condition }) => (
+const Colour: React.FC<ColourProps> = ({ title, handleChange }) => (
   <Container>
     <h3>{title}</h3>
     <CheckBoxContainer>
-      <ConditionDropDown value={condition} onChange={handleChange} />
+      <FilterParamDropDown onChange={handleChange} />
       <input value="black" type="checkbox" onChange={handleChange} />
       <ColourIcon src={black} alt="swamp" />
       <input value="white" type="checkbox" onChange={handleChange} />

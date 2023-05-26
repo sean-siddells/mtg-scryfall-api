@@ -1,9 +1,11 @@
+import React from 'react';
+
 export interface FormData {
   name: string
   text: string
   colour: {
-    condition: Condition,
-    colours: Colours[]
+    filterParam: FilterParam,
+    selectedColours: Colours[]
   }
 }
 
@@ -51,8 +53,10 @@ export interface ImageURIs {
   small: string
 }
 
-export type InputType = 'name'| 'text'| 'colour'
-export type Condition = 'includes' | 'exactly' | 'excludes'
+export type EventType = React.ChangeEvent<HTMLInputElement>
+
+export type SearchParameter = 'name'| 'text'| 'colour'
+export type FilterParam = 'includes' | 'exactly' | 'excludes'
 export type Colours = 'black' | 'white' | 'blue' | 'green' | 'red' | 'colorless'
 export type Rarity = 'common' | 'uncommon' | 'rare' | 'mythic'
 export type Legality = 'legal' | 'not_legal'

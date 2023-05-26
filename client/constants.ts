@@ -1,4 +1,13 @@
+/* eslint-disable no-unused-vars */
 import styled from 'styled-components';
+
+export enum FIELD_IDS {
+  FILTER_PARAM = 'filter_param',
+  TEXT = 'card_text',
+  NAME = 'card_name',
+  TYPE = 'card_type',
+  SUBTYPE = 'card_subtype'
+}
 
 export const Container = styled.div`
   justify-content: center;

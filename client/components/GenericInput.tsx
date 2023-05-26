@@ -5,16 +5,19 @@ import { Container, InputField, InputFieldContainer } from '../constants';
 interface InputProps {
   title: string;
   handleChange: React.ChangeEventHandler;
+  value?: string;
 }
 
-const GenericInput: React.FC<InputProps> = ({ title, handleChange }) => (
+const GenericInput: React.FC<InputProps> = ({ title, handleChange, value = '' }) => (
   <Container>
     <Row>
       <h3>{`${title}:`}</h3>
       {title === 'Card Name' && <MinimiseButton>X</MinimiseButton>}
     </Row>
     <InputFieldContainer>
-      <InputField type="text" onChange={handleChange} />
+      <InputField type="text" onChange={handleChange}>
+        {value}
+      </InputField>
     </InputFieldContainer>
   </Container>
 );

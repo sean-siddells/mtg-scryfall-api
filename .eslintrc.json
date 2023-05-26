@@ -31,6 +31,8 @@
       "no-shadow": "off",
       "@typescript-eslint/no-shadow": ["error"],
       "@typescript-eslint/no-var-requires": ["warn"],
+      "no-lone-blocks": "off",
+      "no-param-reassign": "off",
       "indent": "off",
       "@typescript-eslint/indent": [
         "error",
@@ -48,7 +50,8 @@
           "namedComponents": ["function-declaration", "arrow-function"],
           "unnamedComponents": "arrow-function"
         }
-      ]
+      ],
+      "react/require-default-props":"off"
     },
     "settings": {
       "import/resolver": {
